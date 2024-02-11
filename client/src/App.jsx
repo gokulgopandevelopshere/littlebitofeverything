@@ -6,9 +6,11 @@ import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import Projects from './pages/Projects'
 import Dashboard from './pages/Dashboard'
+import Header from './components/Header'
 export default function App() {
   return (
     <BrowserRouter>
+      <Header/>
 
       <Routes>
         <Route path="/" element={<Home/>} />
@@ -16,10 +18,10 @@ export default function App() {
         <Route path="/sign-in" element={<SignIn />}/>
         <Route path="/sign-up" element={<SignUp />}/>
         <Route path="/projects" element={<Projects />}/>
-        <Route path="/dashboard" element={<Dashboard />}/>
-      
+        <Route path="/dashboard" element={<Dashboard />}/>    
       
       </Routes>
+
     
     
     
