@@ -1,9 +1,10 @@
 import express from 'express'
 import mongoose from 'mongoose';
+import dotenv from "dotenv"
 
+dotenv.config();
 
-mongoose.connect
-('mongodb+srv://admin:admin@mern-blog.vxaqfpy.mongodb.net/mern-blog?retryWrites=true&w=majority').then(
+mongoose.connect(process.env.MONGO).then(
     () => {console.log("MongoDB Connected")
 }).catch((err)=>{
     console.log(err);
