@@ -99,9 +99,19 @@ export const google = async (req,res,next ) => {
                 username : name.toLowerCase().split('').join('') + Math.random().toString(9).slice(-4),
                 email,
                 password:hashedPassword,
-                googlePhotoUrl 
+                googlePhotoUrl :googlePhotoUrl,
 
-               })
+               });
+
+               await newUser.save();
+               const token  = jwt.sign({id:newUser._id}, process.env.JWT_SECRET);
+               const {password , ...rest}= newUser._doc;
+               res.status(201).cookie(
+                "access_token",token,{
+                    httpOnly:true,
+                })
+                .json(rest);
+               
 
 
                 
