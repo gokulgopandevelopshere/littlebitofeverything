@@ -39,7 +39,7 @@ export default function Oauth() {
 
             // console.log("Results From Google: ",resultsFromGoogle);
         }catch(error){
-            console.log(error);
+            console.log(error.json());
         } 
     }
     
